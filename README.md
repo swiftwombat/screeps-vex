@@ -4,7 +4,7 @@ Vex is a Screeps AI loosley modelled after the logic/military structure of the [
 
 # Structural Overview
 
-## Basic Vex Objects
+## Basic Objects
 
 - **Vex**: Wrapper for Creeps, provides functionality for AxisMind interactions.
 - **Construct**: Groups structures (and rooms) with related functionality/purpose. Can themselves contain Constructs.
