@@ -5,7 +5,7 @@ export abstract class Construct
     name: string;               // unique identifier for construct instance
     type: string;               // identifier denoting construct function
     construct: Construct;       // the parent construct (references itself if no parents)
-    core: RoomObject;           // core object to determine room/position data of cluster instance
+    core: RoomObject;           // core object to determine room/position data of cluster instance (i.e., structure)
     memory: any;
     mind: AxisMind | undefined; // operating axis mind (undefined if construct is not a host)
 
