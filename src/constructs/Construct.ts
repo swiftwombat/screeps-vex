@@ -12,7 +12,7 @@ export abstract class Construct
     constructor(type: string, construct: Construct, core: RoomObject)
     {
         this.type = type;
-        this.name = type; // TO DO: generate unique instance name
+        this.name = type + ":" + core.pos.serialize(); // (e.g., "RadiolarianPool:E28N14X10Y48")
         this.construct = construct;
         this.core = core;
     }

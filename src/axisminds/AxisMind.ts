@@ -1,13 +1,15 @@
 export abstract class AxisMind
 {
     name: string;               // unique identifier for construct instance
-    host: RoomObject;           // host object to determine room/position data of mind instance
+    type: string;               // identifier denoting minds primary function
+    core: RoomObject;           // host object to determine room/position data of mind instance
     memory: any;
 
-    constructor(name: string, host: RoomObject)
+    constructor(type: string, host: {name: string, core: RoomObject})
     {
-        this.name = name; // TO DO: generate unique instance name
-        this.host = host;
+        this.name = host.name + ":" + type; // e.g., "RadiolarianPool:E28N14X10Y48:Propogate"
+        this.type = type;
+        this.core = host.core;
     }
 
     abstract init(): void;
