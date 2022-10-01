@@ -1,6 +1,6 @@
 import { Construct } from "./Construct";
 
-export class UpgradingConflux extends Construct
+export class UpgradeConflux extends Construct
 {
     init(): void
     {
