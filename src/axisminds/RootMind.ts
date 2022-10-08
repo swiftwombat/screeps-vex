@@ -1,30 +1,28 @@
 import { Pyramidion } from "constructs/Pyramidion";
-import { AxisMind } from "./AxisMind";
 
-export class RootMind extends AxisMind
+export class RootMind
 {
-    subnets: { [name: string]: Pyramidion }; // hash of all payramidion subnets (key is the name of core pyramidion within the subnet)
+    pyramidions: { [name: string]: Pyramidion }; // hash of all payramidions (key is name of wrapped room)
 
-    constructor(host: {name: string, core: RoomObject})
+    constructor()
     {
-        super("Root", host);
-        this.subnets = {};
+        this.pyramidions = {};
         this.init();
     }
 
     init(): void
     {
-        for (let name in this.subnets)
+        for (let name in this.pyramidions)
         {
-            this.subnets[name].init()
+            this.pyramidions[name].init()
         }
     }
 
     run(): void
     {
-        for (let name in this.subnets)
+        for (let name in this.pyramidions)
         {
-            this.subnets[name].run()
+            this.pyramidions[name].run()
         }
     }
 }
