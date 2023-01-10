@@ -9,11 +9,11 @@ export abstract class Construct
     memory: any;
     mind: AxisMind | undefined; // operating axis mind (undefined if construct is not a host)
 
-    constructor(type: string, construct: Construct, core: RoomObject)
+    constructor(type: string, construct: Construct | undefined, core: RoomObject)
     {
         this.type = type;
         this.name = type + ":" + core.pos.serialize(); // (e.g., "RadiolarianPool:E28N14X10Y48")
-        this.construct = construct;
+        this.construct = construct ?? this;
         this.core = core;
     }
 

@@ -1,3 +1,4 @@
+import { RootMind } from "axisminds/RootMind";
 import { ErrorMapper } from "_utils/ErrorMapper";
 
 declare global {
@@ -24,14 +25,15 @@ declare global {
   // Syntax for adding proprties to `global` (ex "global.log")
   namespace NodeJS {
     interface Global {
+      rootmind: RootMind;
       log: any;
     }
   }
-}
+  }
 
-// When compiling TS to JS and bundling with rollup, the line numbers and file names in error messages change
-// This utility uses source maps to get the line numbers and file names of the original, TS source code
-export const loop = ErrorMapper.wrapLoop(() => {
+  // When compiling TS to JS and bundling with rollup, the line numbers and file names in error messages change
+  // This utility uses source maps to get the line numbers and file names of the original, TS source code
+  export const loop = ErrorMapper.wrapLoop(() => {
   console.log(`Current game tick is ${Game.time}`);
 
   // Automatically delete memory of missing creeps
@@ -40,4 +42,5 @@ export const loop = ErrorMapper.wrapLoop(() => {
       delete Memory.creeps[name];
     }
   }
+  global.rootmind = new RootMind();
 });

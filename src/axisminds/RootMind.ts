@@ -3,28 +3,28 @@ import { AxisMind } from "./AxisMind";
 
 export class RootMind extends AxisMind
 {
-    subnets: { [name: string]: Pyramidion }; // hash of all payramidion subnets (key is the name of core pyramidion within the subnet)
+    pyramidions: { [name: string]: Pyramidion }; // hash of all payramidions (key is the name of core pyramidion within the subnet)
 
-    constructor(host: {name: string, core: RoomObject})
+    constructor()
     {
-        super("Root", host);
-        this.subnets = {};
+        super("Root", {name: "Network", core: undefined});
+        this.pyramidions = {};
         this.init();
     }
 
     init(): void
     {
-        for (let name in this.subnets)
+        for (let name in this.pyramidions)
         {
-            this.subnets[name].init()
+            this.pyramidions[name].init()
         }
     }
 
     run(): void
     {
-        for (let name in this.subnets)
+        for (let name in this.pyramidions)
         {
-            this.subnets[name].run()
+            this.pyramidions[name].run()
         }
     }
 }
